@@ -23,7 +23,9 @@ export default function HangmanWord({
                     <span style={{
                         visibility: guessedLetters.includes(letter) || reveal
                             ? "visible"
-                            : "hidden"  
+                            : "hidden",
+                        color:
+                            !guessedLetters.includes(letter) && reveal ? "red" : "black",
                     }}>
                         {letter}
                     </span>
