@@ -33,6 +33,23 @@ function App() {
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
+      const key = e.key;
+      if(!key.match(/^[a-z]$/)) return;
+
+      e.preventDefault();
+      addGuessedLetter(key);
+    }
+
+    document.addEventListener("keypress", handler);
+
+    return () => {
+      document.removeEventListener("keypress", handler);
+    }
+ 
+  }, [addGuessedLetter])
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
       const key = e.key
       if (key !== "Enter") return;
 
